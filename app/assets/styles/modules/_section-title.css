@@ -17,6 +17,12 @@
         
         @mixin atMedium {
             width: 62px;
+            position: relative;
+            top: 14px;
         }
+    }
+    
+    &--blue {
+        color: $mainBlue;
     }
 }
