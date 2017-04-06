@@ -1090,6 +1090,25 @@ Instead edit gulp/template/sprite */
     background-position: 36.69752421959096% 45.792307692307695%;
 }
 
+.site-header {
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(47,85,114, .3);
+    width: 100%;
+    padding: 10px 0;
+}
+
+.site-header__btn-container {
+  float: right;
+}
+
+.site-header__logo {
+  position: absolute;
+  top: 0;
+  background-color: rgba(47,85,114, 1);
+  padding: 1.55rem 2.25rem;
+}
+
 .site-footer {
     background: #2f5572;
     color: #fff;
@@ -1110,4 +1129,36 @@ Instead edit gulp/template/sprite */
     margin-bottom: 0;
     margin-right: 2rem;
   }
+}
+
+.primary-nav {
+    font-weight: 300;
+    margin-top: .75rem;
+}
+
+.primary-nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.primary-nav ul::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.primary-nav li {
+  list-style: none;
+  float: left;
+  padding-right: 1.25rem;
+}
+
+.primary-nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.primary-nav--pull-right {
+  float: right;
+  margin-right: 2rem;
 }
