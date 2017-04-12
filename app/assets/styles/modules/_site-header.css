@@ -27,6 +27,10 @@
         @mixin atMedium {
             display: block;
         }
+        
+        &--is-visible {
+            display: block;
+        }
     }
     
     &__btn-container {

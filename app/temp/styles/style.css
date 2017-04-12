@@ -1139,6 +1139,10 @@ Instead edit gulp/template/sprite */
   }
 }
 
+.site-header__menu-content--is-visible {
+  display: block;
+}
+
 .site-header__btn-container {
   float: right;
 }
