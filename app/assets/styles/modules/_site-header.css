@@ -6,7 +6,13 @@
     transition: background-color .2s ease-out;
     
     @mixin atMedium {
+        
+        position: fixed;
         background-color: rgba($mainBlue, .3);
+        
+        &--dark {
+            background-color:  rgba(23,51,72, .85);
+        }
     }
     
     &__menu-icon {
@@ -109,7 +115,8 @@
         position: absolute;
         top: 0;
         left: 50%;
-        transform :translateX(-50%) scale(.8);
+        transform: translateX(-50%) scale(.8);
+        transition: transform .3s ease-out;
         transform-origin: 50% 0;
         background-color: rgba($mainBlue, 1);
         padding: 1.55rem 2.25rem;
@@ -117,6 +124,10 @@
         @mixin atMedium {
             left: auto;
             transform: translateX(0) scale(1);
+            
+            .site-header--dark & {
+                transform: scale(.57);
+            }
         }
     }
     
