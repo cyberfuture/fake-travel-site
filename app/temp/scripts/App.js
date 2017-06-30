@@ -6,9 +6,9 @@
 /******/ 	function __webpack_require__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-/******/
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
@@ -11023,7 +11023,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /*!
- * jQuery Smooth Scroll - v2.1.2 - 2017-01-19
+ * jQuery Smooth Scroll - v2.2.0 - 2017-05-05
  * https://github.com/kswedberg/jquery-smooth-scroll
  * Copyright (c) 2017 Karl Swedberg
  * Licensed MIT
@@ -11045,7 +11045,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   }
 })(function ($) {
 
-  var version = '2.1.2';
+  var version = '2.2.0';
   var optionOverrides = {};
   var defaults = {
     exclude: [],
@@ -11065,6 +11065,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     // only use if you want to override default behavior
     scrollTarget: null,
+
+    // automatically focus the target element after scrolling to it
+    autoFocus: false,
 
     // fn(opts) function to be called before scrolling occurs.
     // `this` is the element(s) being scrolled
@@ -11152,6 +11155,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   };
 
   var rRelative = /^([\-\+]=)(\d+)/;
+
   $.fn.extend({
     scrollable: function scrollable(dir) {
       var scrl = getScrollable.call(this, { dir: dir });
@@ -11260,6 +11264,21 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     return explicit;
   };
 
+  var onAfterScroll = function onAfterScroll(opts) {
+    var $tgt = $(opts.scrollTarget);
+
+    if (opts.autoFocus && $tgt.length) {
+      $tgt[0].focus();
+
+      if (!$tgt.is(document.activeElement)) {
+        $tgt.prop({ tabIndex: -1 });
+        $tgt[0].focus();
+      }
+    }
+
+    opts.afterScroll.call(opts.link, opts);
+  };
+
   $.smoothScroll = function (options, px) {
     if (options === 'options' && (typeof px === 'undefined' ? 'undefined' : _typeof(px)) === 'object') {
       return $.extend(optionOverrides, px);
@@ -11330,7 +11349,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       duration: speed,
       easing: opts.easing,
       complete: function complete() {
-        opts.afterScroll.call(opts.link, opts);
+        onAfterScroll(opts);
       }
     };
 
@@ -11341,7 +11360,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     if ($scroller.length) {
       $scroller.stop().animate(aniProps, aniOpts);
     } else {
-      opts.afterScroll.call(opts.link, opts);
+      onAfterScroll(opts);
     }
   };
 

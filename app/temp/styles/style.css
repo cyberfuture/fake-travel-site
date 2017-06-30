@@ -1112,7 +1112,6 @@ Instead edit gulp/template/sprite */
     z-index: 2;
     width: 100%;
     padding: 10px 0;
-    -webkit-transition: background-color .2s ease-out;
     transition: background-color .2s ease-out;
 }
 
@@ -1148,7 +1147,6 @@ Instead edit gulp/template/sprite */
   border-radius: 2px;
   -webkit-transform-origin: 0 0;
           transform-origin: 0 0;
-  -webkit-transition: -webkit-transform .3s ease-out;
   transition: -webkit-transform .3s ease-out;
   transition: transform .3s ease-out;
   transition: transform .3s ease-out, -webkit-transform .3s ease-out;
@@ -1162,7 +1160,6 @@ Instead edit gulp/template/sprite */
   height:  3px;
   background-color: #fff;
   border-radius: 2px;
-  -webkit-transition: all .3s ease-out;
   transition: all .3s ease-out;
   -webkit-transform-origin: 0 50%;
           transform-origin: 0 50%;
@@ -1179,7 +1176,6 @@ Instead edit gulp/template/sprite */
   border-radius: 2px;
   -webkit-transform-origin: 0 100%;
           transform-origin: 0 100%;
-  -webkit-transition: -webkit-transform .3s ease-out;
   transition: -webkit-transform .3s ease-out;
   transition: transform .3s ease-out;
   transition: transform .3s ease-out, -webkit-transform .3s ease-out;
@@ -1216,7 +1212,6 @@ Instead edit gulp/template/sprite */
   text-align: center;
   position:  relative;
   z-index: -10;
-  -webkit-transition: all .3s ease-out;
   transition: all .3s ease-out;
 }
 
@@ -1251,7 +1246,6 @@ Instead edit gulp/template/sprite */
   left: 50%;
   -webkit-transform: translateX(-50%) scale(.8);
           transform: translateX(-50%) scale(.8);
-  -webkit-transition: -webkit-transform .3s ease-out;
   transition: -webkit-transform .3s ease-out;
   transition: transform .3s ease-out;
   transition: transform .3s ease-out, -webkit-transform .3s ease-out;
@@ -1391,7 +1385,6 @@ Instead edit gulp/template/sprite */
 
 .reveal-item {
     opacity: 0;
-    -webkit-transition: all 1.5s ease-out;
     transition: all 1.5s ease-out;
     -webkit-transform: scale(1.15);
             transform: scale(1.15);
@@ -1415,7 +1408,6 @@ Instead edit gulp/template/sprite */
     visibility: hidden;
     -webkit-transform: scale(1.2);
             transform: scale(1.2);
-    -webkit-transition: all .3s ease-out;
     transition: all .3s ease-out;
 }
 
