@@ -1313,12 +1313,14 @@ Instead edit gulp/template/sprite */
 .primary-nav {
     font-weight: 300;
     margin-top: .75rem;
+    padding-top: 10px;
 }
 
-.primary-nav padding-top: 10px
-        
-        @mixin atMedium {
-  padding-top: 0;
+@media (min-width: 800px) {
+
+  .primary-nav {
+    padding-top: 0;
+  }
 }
 
 .primary-nav ul {
